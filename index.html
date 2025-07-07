@@ -3,15 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <title>Taxi Invoice - NST</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f9f9f9;
-      padding: 20px;
-      max-width: 800px;
+    @page {
+      size: A4;
+      margin: 20mm;
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f5f5f5;
+    }
+    .invoice {
+      background: white;
+      width: 210mm;
+      min-height: 297mm;
       margin: auto;
-      border: 1px solid #ccc;
-      border-radius: 10px;
+      padding: 20mm;
+      box-sizing: border-box;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      position: relative;
     }
     .header {
       background-color: #4b2aad;
@@ -20,10 +32,11 @@
       text-align: center;
       font-size: 28px;
       font-weight: bold;
-      border-radius: 8px 8px 0 0;
+      border-radius: 10px;
+      margin-bottom: 20px;
     }
     .section {
-      margin: 20px 0;
+      margin-bottom: 20px;
     }
     .section h3 {
       background-color: #4b2aad;
@@ -31,12 +44,15 @@
       padding: 10px;
       margin: 0;
       font-size: 18px;
+      border-top-left-radius: 6px;
+      border-top-right-radius: 6px;
     }
     .content {
       border: 1px solid #4b2aad;
-      border-top: none;
       padding: 15px;
       background: white;
+      border-bottom-left-radius: 6px;
+      border-bottom-right-radius: 6px;
     }
     .grid {
       display: flex;
@@ -45,6 +61,7 @@
     }
     .grid div {
       width: 48%;
+      margin-bottom: 10px;
     }
     .table {
       width: 100%;
@@ -65,17 +82,28 @@
       font-size: 18px;
       margin-top: 10px;
     }
-    .notes {
-      margin-top: 20px;
-    }
     .signature {
       display: flex;
       justify-content: space-between;
       margin-top: 40px;
     }
+    .notes {
+      margin-top: 20px;
+    }
+    .bottom-message {
+      text-align: center;
+      font-size: 16px;
+      margin-top: 50px;
+      font-weight: bold;
+      color: #333;
+    }
+    .bottom-message span {
+      font-size: 18px;
+      color: #4b2aad;
+    }
     .buttons {
       text-align: center;
-      margin-top: 30px;
+      margin: 30px 0;
     }
     .buttons button {
       background-color: #4b2aad;
@@ -94,19 +122,18 @@
 </head>
 <body>
 
+<div id="invoice" class="invoice">
+
   <div class="header">Taxi Invoice</div>
 
-  <div class="section">
-    <div class="grid">
-      <div><p><strong>Hi Narayanan</strong></p></div>
-      <div style="text-align: right;">
-        <p>Thanks for riding with us</p>
-      </div>
-    </div>
-    <div class="grid">
-      <div><p><strong>Invoice Date:</strong> 08-07-2025</p></div>
-      <div><p><strong>Invoice No:</strong> #NST001</p></div>
-    </div>
+  <div class="grid">
+    <div><strong>Hi Narayanan</strong></div>
+    <div style="text-align: right;">Thanks for riding with us</div>
+  </div>
+
+  <div class="grid">
+    <div><strong>Invoice Date:</strong> 08-07-2025</div>
+    <div><strong>Invoice No:</strong> #NST001</div>
   </div>
 
   <div class="section">
@@ -125,13 +152,13 @@
         </div>
       </div>
       <div class="grid">
-        <div><p><strong>Billed By:</strong> Sivakumar</p></div>
-        <div><p><strong>Taxi Operator:</strong> NarayanSelvi Travels</p></div>
+        <div><strong>Billed By:</strong> Sivakumar</div>
+        <div><strong>Taxi Operator:</strong> NarayanSelvi Travels</div>
       </div>
       <div class="grid">
-        <div><p><strong>Mobile No:</strong> 9800009899</p></div>
-        <div><p><strong>Vehicle No:</strong> PY05N0505</p></div>
-        <div><p><strong>Vehicle Model:</strong> Innova Crysta</p></div>
+        <div><strong>Mobile No:</strong> 9800009899</div>
+        <div><strong>Vehicle No:</strong> PY05N0505</div>
+        <div><strong>Vehicle Model:</strong> Innova Crysta</div>
       </div>
     </div>
   </div>
@@ -187,57 +214,37 @@
   </div>
 
   <div class="signature">
-    <div><p>_________________________<br>Customer Signature</p></div>
-    <div><p>_________________________<br>Seal & Signature</p></div>
+    <div>_________________________<br>Customer Signature</div>
+    <div>_________________________<br>Seal & Signature</div>
   </div>
 
-  <div class="buttons">
-    <button onclick="window.print()">🖨️ Print or Save as PDF</button>
-    <button onclick="shareWhatsApp()">📤 Share via WhatsApp</button>
+  <div class="bottom-message">
+    <p>😊 <span>Happy Ride!</span> Thanks for riding with us – <strong>NST 🚖</strong></p>
   </div>
 
-  <script>
-    function shareWhatsApp() {
-      const message = `📋 *TRIP SUMMARY*
-*TRIP ID:* #NST001
-*DATE:* 08-07-2025
+</div>
 
-👤 *CUSTOMER INFO*
-*• Name:* Narayanan
-*• Number:* 9800009899
+<div class="buttons">
+  <button onclick="window.print()">🖨️ Print or Save as PDF</button>
+  <button onclick="shareImage()">📤 Share Full Invoice Image via WhatsApp</button>
+</div>
 
-👨‍✈️ *DRIVER INFO*
-*• Name:* Sivakumar
-*• Number:* 98988988888
+<script>
+  function shareImage() {
+    const invoice = document.getElementById('invoice');
+    html2canvas(invoice).then(canvas => {
+      const imgData = canvas.toDataURL("image/png");
+      const link = document.createElement("a");
+      link.href = imgData;
+      link.download = "NST_Invoice.png";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
 
-🚘 *VEHICLE INFO*
-*• Model:* Innova Crysta
-*• Vehicle No:* PY05N0505
-
-🕒 *TIME & DISTANCE*
-*• Start Time:* 10:54 AM
-*• End Time:* 8:54 PM
-*• Duration:* 10 hrs
-*• Extra Hrs:* 2
-*• Total KM:* 237 km
-*• Extra KM:* 157 km
-
-💰 *BILLING*
-*• Package:* ₹7500
-*• Extra Hrs:* ₹2000
-*• Extra KM:* ₹3140
-*• Toll:* ₹100
-*• Parking:* ₹100
-*• Total:* ₹12840
-
-📝 *Note:* Reference: Seethapathy
-Radison Blu to Mahaballipuram`;
-
-      const encodedMessage = encodeURIComponent(message);
-      const whatsappURL = `https://wa.me/?text=${encodedMessage}`;
-      window.open(whatsappURL, "_blank");
-    }
-  </script>
+      alert("✅ Invoice image downloaded. Now share it via WhatsApp manually.");
+    });
+  }
+</script>
 
 </body>
 </html>
