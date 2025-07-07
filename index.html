@@ -106,6 +106,22 @@
       color: #4b2aad;
       line-height: 1.6;
     }
+
+    /* ✅ PRINT A4 FORMAT */
+    @media print {
+      body {
+        width: 210mm;
+        height: 297mm;
+        margin: 20mm auto;
+        font-size: 12pt;
+        background: white;
+        border: none;
+        box-shadow: none;
+      }
+      .buttons {
+        display: none !important;
+      }
+    }
   </style>
 </head>
 <body>
