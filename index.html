@@ -1,81 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>NST Invoice A4</title>
+  <meta charset="UTF-8">
+  <title>NST A4 Invoice</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
   <style>
+    * {
+      box-sizing: border-box;
+    }
     body {
-      background: #ccc;
+      background: #ddd;
       margin: 0;
-      padding: 30px;
+      padding: 20px;
       display: flex;
       justify-content: center;
       align-items: flex-start;
+      font-family: Arial, sans-serif;
     }
     .a4-sheet {
       width: 210mm;
       height: 297mm;
       background: white;
-      padding: 20mm;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
-      box-sizing: border-box;
+      padding: 15mm;
+      box-shadow: 0 0 8px rgba(0,0,0,0.2);
+      overflow: hidden;
       position: relative;
-      font-family: Arial, sans-serif;
     }
     h1, h2, h3 {
-      color: #4b2aad;
+      margin: 2mm 0;
       text-align: center;
-      margin-bottom: 10px;
+      color: #4b2aad;
+    }
+    .tagline {
+      font-size: 10pt;
+      color: #555;
+      text-align: center;
+      margin-bottom: 8mm;
     }
     .section {
-      margin-top: 20px;
+      margin-bottom: 5mm;
     }
     .section h4 {
+      margin: 0 0 2mm;
+      font-size: 11pt;
       background: #4b2aad;
       color: white;
-      padding: 8px;
+      padding: 2mm 4mm;
+    }
+    .section p {
+      margin: 1mm 0;
+      font-size: 10pt;
     }
     table {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 10px;
-    }
-    table, th, td {
-      border: 1px solid #4b2aad;
+      font-size: 10pt;
     }
     th, td {
-      padding: 8px;
+      border: 1px solid #4b2aad;
+      padding: 4px 6px;
       text-align: left;
+    }
+    th {
+      background: #4b2aad;
+      color: white;
     }
     .total {
       text-align: right;
-      font-size: 16px;
+      font-size: 11pt;
       font-weight: bold;
-      margin-top: 10px;
+      margin-top: 4mm;
     }
     .footer {
+      font-size: 10pt;
       text-align: center;
-      margin-top: 30px;
-      font-size: 16px;
       color: #4b2aad;
+      margin-top: 5mm;
       font-weight: bold;
     }
     .buttons {
       position: fixed;
-      bottom: 20px;
+      bottom: 15px;
       left: 50%;
       transform: translateX(-50%);
       display: flex;
       gap: 10px;
+      z-index: 999;
     }
     .buttons button {
-      padding: 10px 20px;
-      font-size: 16px;
+      padding: 8px 14px;
+      font-size: 14px;
       background: #4b2aad;
       color: white;
       border: none;
-      border-radius: 5px;
+      border-radius: 4px;
       cursor: pointer;
     }
     @media print {
@@ -93,9 +111,8 @@
 <div class="a4-sheet" id="invoice">
   <h1>🚖 NST</h1>
   <h2>Narayanan Selvi Travels</h2>
-  <h3>🧾 TAXI INVOICE</h3>
-
-  <p><strong>Tagline:</strong> Luxury on Wheels • Comfort & Trust in Every Trip</p>
+  <h3>INVOICE</h3>
+  <div class="tagline">Luxury on Wheels • Comfort & Trust in Every Trip</div>
 
   <div class="section">
     <h4>Trip Summary</h4>
@@ -138,22 +155,24 @@
       <tr><td>Toll</td><td>₹100</td></tr>
       <tr><td>Parking</td><td>₹100</td></tr>
     </table>
-    <div class="total">Total: ₹12840</div>
+    <div class="total">Total: ₹12,840</div>
   </div>
 
   <div class="section">
     <h4>Note</h4>
-    <p>Reference: Seethapathy | Radison Blu to Mahabalipuram</p>
+    <p><strong>Reference:</strong> Seethapathy</p>
+    <p>Radison Blu to Mahabalipuram</p>
   </div>
 
   <div class="footer">
-    😊 Thank you for choosing NST! <br> 💜 Have a happy and safe ride!
+    😊 Thank you for choosing NST! 💜 <br>
+    🚖 Have a happy and safe ride!
   </div>
 </div>
 
 <div class="buttons">
-  <button onclick="window.print()">🖨️ Print A4</button>
-  <button onclick="shareImage()">📤 Share as Image</button>
+  <button onclick="window.print()">🖨️ Print</button>
+  <button onclick="shareImage()">📤 Share Image</button>
 </div>
 
 <script>
@@ -162,15 +181,14 @@
     html2canvas(invoice).then(canvas => {
       canvas.toBlob(blob => {
         const file = new File([blob], "NST_Invoice.png", { type: "image/png" });
-
         if (navigator.canShare && navigator.canShare({ files: [file] })) {
           navigator.share({
             files: [file],
             title: "NST Trip Invoice",
-            text: "Here's your trip summary",
+            text: "Your trip summary from Narayanan Selvi Travels",
           });
         } else {
-          alert("Sharing not supported on this browser. Try on Android or WhatsApp Web.");
+          alert("Sharing not supported on this device. Please try on Android or WhatsApp Web.");
         }
       });
     });
