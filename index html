@@ -32,15 +32,11 @@
       margin: 0;
       font-size: 18px;
     }
-    .section .content {
+    .content {
       border: 1px solid #4b2aad;
       border-top: none;
       padding: 15px;
       background: white;
-    }
-    .content p {
-      margin: 5px 0;
-      font-size: 16px;
     }
     .grid {
       display: flex;
@@ -238,7 +234,8 @@
 Radison Blu to Mahaballipuram`;
 
       const encodedMessage = encodeURIComponent(message);
-      window.open(`https://wa.me/?text=${encodedMessage}`, '_blank');
+      const whatsappURL = `https://wa.me/?text=${encodedMessage}`;
+      window.open(whatsappURL, "_blank");
     }
   </script>
 
