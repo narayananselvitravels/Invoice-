@@ -24,7 +24,6 @@
       padding: 20mm;
       box-sizing: border-box;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      position: relative;
     }
     .header {
       background-color: #4b2aad;
@@ -36,6 +35,18 @@
       border-radius: 10px;
       margin-bottom: 20px;
       letter-spacing: 1px;
+    }
+    .top-section {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    .top-section .left {
+      font-weight: 600;
+    }
+    .top-section .right {
+      text-align: right;
+      width: 50%;
     }
     .section {
       margin-bottom: 20px;
@@ -134,14 +145,13 @@
 
   <div class="header">Taxi Invoice</div>
 
-  <div class="grid">
-    <div><strong>Hi Narayanan</strong></div>
-    <div style="text-align: right;">Thanks for riding with us</div>
+  <div class="top-section">
+    <div class="left">Hi Narayanan</div>
+    <div class="right"><strong>Invoice No:</strong> #NST001</div>
   </div>
 
-  <div class="grid">
-    <div><strong>Invoice Date:</strong> 08-07-2025</div>
-    <div><strong>Invoice No:</strong> #NST001</div>
+  <div class="top-section">
+    <div class="left"><strong>Invoice Date:</strong> 08-07-2025</div>
   </div>
 
   <div class="section">
@@ -160,11 +170,17 @@
         </div>
       </div>
       <div class="grid">
-        <div><strong>Billed By:</strong> Sivakumar</div>
-        <div><strong>Taxi Operator:</strong> NarayanSelvi Travels</div>
+        <div>
+          <p><strong>Owner:</strong> N. Sivakumar</p>
+          <p><strong>Owner Mobile:</strong> 98988988888</p>
+        </div>
+        <div>
+          <p><strong>Driver:</strong> Sivakumar</p>
+          <p><strong>Driver Mobile:</strong> 98988988888</p>
+        </div>
       </div>
       <div class="grid">
-        <div><strong>Mobile No:</strong> 9800009899</div>
+        <div><strong>Customer Mobile:</strong> 9800009899</div>
         <div><strong>Vehicle No:</strong> PY05N0505</div>
         <div><strong>Vehicle Model:</strong> Innova Crysta</div>
       </div>
@@ -227,7 +243,7 @@
   </div>
 
   <div class="bottom-message">
-    <p>😊 <span>Happy Ride!</span> Thanks for riding with us – <strong>NST 🚖</strong></p>
+    <p>😊 <span>Happy Ride!</span> Thanks for choosing <strong>NST 🚖</strong></p>
   </div>
 
 </div>
