@@ -2,73 +2,92 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>NST Trip Invoice</title>
+  <title>Taxi Invoice - NST</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
   <style>
-    @page { size: A4; margin: 20mm; }
-    body {
-      font-family: 'Poppins', sans-serif;
+    @page {
+      size: A4;
+      margin: 20mm;
+    }
+    html, body {
       margin: 0;
-      background: #f2f2f2;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #f5f5f5;
       font-size: 16px;
     }
     .invoice {
-      background: #fff;
+      background: white;
       width: 210mm;
       min-height: 297mm;
       margin: auto;
       padding: 20mm;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
       box-sizing: border-box;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
     .header {
-      background: #4b2aad;
+      background-color: #4b2aad;
       color: white;
       padding: 20px;
-      font-size: 30px;
-      font-weight: 700;
       text-align: center;
+      font-size: 34px;
+      font-weight: 700;
       border-radius: 10px;
       margin-bottom: 20px;
     }
-    .top-info {
+    .top-section {
       display: flex;
       justify-content: space-between;
       margin-bottom: 10px;
+    }
+    .top-section .left {
+      font-weight: 600;
+    }
+    .top-section .right {
+      text-align: right;
+      width: 50%;
     }
     .section {
       margin-bottom: 20px;
     }
     .section h3 {
-      background: #4b2aad;
+      background-color: #4b2aad;
       color: white;
       padding: 10px;
       margin: 0;
       font-size: 18px;
-      border-radius: 6px 6px 0 0;
+      border-top-left-radius: 6px;
+      border-top-right-radius: 6px;
     }
     .content {
       border: 1px solid #4b2aad;
       padding: 15px;
-      border-radius: 0 0 6px 6px;
-      background: #fff;
+      background: white;
+      border-bottom-left-radius: 6px;
+      border-bottom-right-radius: 6px;
+      font-size: 16px;
     }
     .row {
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
-      margin-bottom: 10px;
     }
-    .col {
+    .row .col {
       width: 48%;
-      margin-bottom: 8px;
+    }
+    .field {
+      margin-bottom: 15px;
+    }
+    .field label {
+      font-weight: 600;
+      display: block;
     }
     .table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 16px;
       margin-top: 10px;
+      font-size: 16px;
     }
     .table th, .table td {
       border: 1px solid #4b2aad;
@@ -82,26 +101,28 @@
     .total {
       text-align: right;
       font-size: 18px;
-      font-weight: bold;
       margin-top: 10px;
+      font-weight: 600;
     }
     .signature {
       display: flex;
       justify-content: space-between;
       margin-top: 40px;
+      font-size: 15px;
     }
     .notes {
-      font-size: 15px;
       margin-top: 20px;
+      font-size: 16px;
     }
-    .bottom-msg {
+    .bottom-message {
       text-align: center;
-      margin-top: 40px;
       font-size: 17px;
+      margin-top: 50px;
       font-weight: bold;
       color: #333;
     }
-    .bottom-msg span {
+    .bottom-message span {
+      font-size: 19px;
       color: #4b2aad;
     }
     .buttons {
@@ -109,66 +130,96 @@
       margin: 30px 0;
     }
     .buttons button {
-      background: #4b2aad;
+      background-color: #4b2aad;
       color: white;
-      border: none;
       padding: 12px 24px;
+      margin: 10px;
+      border: none;
       font-size: 16px;
       cursor: pointer;
       border-radius: 6px;
-      margin: 5px;
+      font-weight: 600;
     }
     .buttons button:hover {
-      background: #3b2390;
+      background-color: #3b2390;
     }
   </style>
 </head>
 <body>
 
-<div class="invoice" id="invoice">
+<div id="invoice" class="invoice">
 
-  <div class="header">NST Trip Invoice</div>
+  <div class="header">Taxi Invoice</div>
 
-  <div class="top-info">
-    <div><strong>Date:</strong> 08-07-2025</div>
-    <div><strong>Invoice No:</strong> #NST001</div>
+  <div class="top-section">
+    <div class="left">Hi Narayanan</div>
+    <div class="right"><strong>Invoice No:</strong> #NST001</div>
   </div>
-
-  <div class="section">
-    <h3>Ride Info & Timing</h3>
-    <div class="content">
-      <div class="row">
-        <div class="col"><strong>From:</strong> Radison Blu</div>
-        <div class="col"><strong>To:</strong> Mahaballipuram</div>
-      </div>
-      <div class="row">
-        <div class="col"><strong>Start Time:</strong> 10:54 AM</div>
-        <div class="col"><strong>End Time:</strong> 8:54 PM</div>
-      </div>
-      <div class="row">
-        <div class="col"><strong>Duration:</strong> 10 hrs</div>
-        <div class="col"><strong>Extra Hours:</strong> 2 hrs</div>
-      </div>
-    </div>
+  <div class="top-section">
+    <div class="left"><strong>Invoice Date:</strong> 08-07-2025</div>
   </div>
 
   <div class="section">
     <h3>Trip Details</h3>
     <div class="content">
       <div class="row">
-        <!-- Left side: Customer + Owner -->
         <div class="col">
-          <p><strong>Customer Name:</strong> Narayanan</p>
-          <p><strong>Customer Mobile:</strong> 9800009899</p>
-          <p><strong>Owner Name:</strong> N. Sivakumar</p>
-          <p><strong>Owner Mobile:</strong> 98988988888</p>
+          <div class="field">
+            <label>Customer Name</label>
+            Narayanan
+          </div>
+          <div class="field">
+            <label>Customer Mobile</label>
+            9800009899
+          </div>
+          <div class="field">
+            <label>Owner Name</label>
+            N. Sivakumar
+          </div>
+          <div class="field">
+            <label>Owner Mobile</label>
+            98988988888
+          </div>
         </div>
-        <!-- Right side: Driver + Vehicle -->
         <div class="col">
-          <p><strong>Driver Name:</strong> Sivakumar</p>
-          <p><strong>Driver Mobile:</strong> 98988988888</p>
-          <p><strong>Vehicle Model:</strong> Innova Crysta</p>
-          <p><strong>Vehicle No:</strong> PY05N0505</p>
+          <div class="field">
+            <label>Driver Name</label>
+            Sivakumar
+          </div>
+          <div class="field">
+            <label>Driver Mobile</label>
+            98988988888
+          </div>
+          <div class="field">
+            <label>Vehicle Model</label>
+            Innova Crysta
+          </div>
+          <div class="field">
+            <label>Vehicle No</label>
+            PY05N0505
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="field">
+            <label>Ride From</label>
+            Radison Blu
+          </div>
+          <div class="field">
+            <label>Start Time</label>
+            10:54 AM
+          </div>
+        </div>
+        <div class="col">
+          <div class="field">
+            <label>Ride To</label>
+            Mahaballipuram
+          </div>
+          <div class="field">
+            <label>End Time</label>
+            8:54 PM
+          </div>
         </div>
       </div>
     </div>
@@ -185,7 +236,7 @@
           <th>Amount</th>
         </tr>
         <tr>
-          <td>Package (includes 80 KM)</td>
+          <td>Package (includes 80 km)</td>
           <td>₹7500</td>
           <td>Fixed</td>
           <td>₹7500</td>
@@ -203,51 +254,55 @@
           <td>₹3140</td>
         </tr>
         <tr>
-          <td>Toll</td>
+          <td>Toll Charges</td>
           <td>—</td>
           <td>—</td>
           <td>₹100</td>
         </tr>
         <tr>
-          <td>Parking</td>
+          <td>Parking Charges</td>
           <td>—</td>
           <td>—</td>
           <td>₹100</td>
         </tr>
       </table>
-      <div class="total">Total Amount: ₹12,840</div>
+      <div class="total"><strong>Total Fare Payable: ₹12,840</strong></div>
     </div>
   </div>
 
   <div class="section notes">
-    <p><strong>Amount in Words:</strong> Twelve Thousand Eight Hundred Forty Rupees Only</p>
+    <p><strong>Amount in words:</strong> Rupees Twelve Thousand Eight Hundred Forty Only</p>
     <p><strong>Note:</strong> Reference: Seethapathy</p>
   </div>
 
   <div class="signature">
-    <div>_______________________<br>Customer Signature</div>
-    <div>_______________________<br>Seal & Signature</div>
+    <div>_________________________<br>Customer Signature</div>
+    <div>_________________________<br>Seal & Signature</div>
   </div>
 
-  <div class="bottom-msg">
-    😊 <span>Happy Ride!</span> Thank you for choosing <strong>NST 🚖</strong>
+  <div class="bottom-message">
+    <p>😊 <span>Happy Ride!</span> Thanks for choosing <strong>NST 🚖</strong></p>
   </div>
+
 </div>
 
 <div class="buttons">
-  <button onclick="window.print()">🖨️ Print or Save PDF</button>
-  <button onclick="shareImage()">📤 Download as Image</button>
+  <button onclick="window.print()">🖨️ Print or Save as PDF</button>
+  <button onclick="shareImage()">📤 Share Full Invoice Image via WhatsApp</button>
 </div>
 
 <script>
   function shareImage() {
-    const invoice = document.getElementById("invoice");
+    const invoice = document.getElementById('invoice');
     html2canvas(invoice).then(canvas => {
+      const imgData = canvas.toDataURL("image/png");
       const link = document.createElement("a");
-      link.href = canvas.toDataURL("image/png");
+      link.href = imgData;
       link.download = "NST_Invoice.png";
+      document.body.appendChild(link);
       link.click();
-      alert("✅ Invoice image downloaded. Share via WhatsApp or print.");
+      document.body.removeChild(link);
+      alert("✅ Invoice image downloaded. You can now share it via WhatsApp.");
     });
   }
 </script>
