@@ -15,6 +15,7 @@
       padding: 0;
       font-family: 'Poppins', sans-serif;
       background: #f5f5f5;
+      font-size: 16px;
     }
     .invoice {
       background: white;
@@ -30,11 +31,10 @@
       color: white;
       padding: 20px;
       text-align: center;
-      font-size: 32px;
+      font-size: 34px;
       font-weight: 700;
       border-radius: 10px;
       margin-bottom: 20px;
-      letter-spacing: 1px;
     }
     .top-section {
       display: flex;
@@ -66,14 +66,14 @@
       background: white;
       border-bottom-left-radius: 6px;
       border-bottom-right-radius: 6px;
-      font-size: 15px;
+      font-size: 16px;
     }
-    .grid {
+    .row {
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
     }
-    .grid div {
+    .row div {
       width: 48%;
       margin-bottom: 10px;
     }
@@ -81,7 +81,7 @@
       width: 100%;
       border-collapse: collapse;
       margin-top: 10px;
-      font-size: 15px;
+      font-size: 16px;
     }
     .table th, .table td {
       border: 1px solid #4b2aad;
@@ -94,7 +94,7 @@
     }
     .total {
       text-align: right;
-      font-size: 17px;
+      font-size: 18px;
       margin-top: 10px;
       font-weight: 600;
     }
@@ -102,21 +102,21 @@
       display: flex;
       justify-content: space-between;
       margin-top: 40px;
-      font-size: 14px;
+      font-size: 15px;
     }
     .notes {
       margin-top: 20px;
-      font-size: 15px;
+      font-size: 16px;
     }
     .bottom-message {
       text-align: center;
-      font-size: 16px;
+      font-size: 17px;
       margin-top: 50px;
       font-weight: bold;
       color: #333;
     }
     .bottom-message span {
-      font-size: 18px;
+      font-size: 19px;
       color: #4b2aad;
     }
     .buttons {
@@ -126,7 +126,7 @@
     .buttons button {
       background-color: #4b2aad;
       color: white;
-      padding: 10px 20px;
+      padding: 12px 24px;
       margin: 10px;
       border: none;
       font-size: 16px;
@@ -157,32 +157,29 @@
   <div class="section">
     <h3>Trip Details</h3>
     <div class="content">
-      <div class="grid">
-        <div>
-          <p><strong>Ride From:</strong> Radison Blu</p>
-          <p><strong>Date:</strong> 08-07-2025</p>
-          <p><strong>Time:</strong> 10:54 AM</p>
-        </div>
-        <div>
-          <p><strong>Ride To:</strong> Mahaballipuram</p>
-          <p><strong>Date:</strong> 08-07-2025</p>
-          <p><strong>Time:</strong> 8:54 PM</p>
-        </div>
+      <div class="row">
+        <div><strong>Driver Name:</strong> Sivakumar</div>
+        <div><strong>Driver Mobile:</strong> 98988988888</div>
       </div>
-      <div class="grid">
-        <div>
-          <p><strong>Owner:</strong> N. Sivakumar</p>
-          <p><strong>Owner Mobile:</strong> 98988988888</p>
-        </div>
-        <div>
-          <p><strong>Driver:</strong> Sivakumar</p>
-          <p><strong>Driver Mobile:</strong> 98988988888</p>
-        </div>
+      <div class="row">
+        <div><strong>Owner Name:</strong> N. Sivakumar</div>
+        <div><strong>Owner Mobile:</strong> 98988988888</div>
       </div>
-      <div class="grid">
+      <div class="row">
+        <div><strong>Customer Name:</strong> Narayanan</div>
         <div><strong>Customer Mobile:</strong> 9800009899</div>
-        <div><strong>Vehicle No:</strong> PY05N0505</div>
+      </div>
+      <div class="row">
         <div><strong>Vehicle Model:</strong> Innova Crysta</div>
+        <div><strong>Vehicle No:</strong> PY05N0505</div>
+      </div>
+      <div class="row">
+        <div><strong>Ride From:</strong> Radison Blu</div>
+        <div><strong>Ride To:</strong> Mahaballipuram</div>
+      </div>
+      <div class="row">
+        <div><strong>Start Time:</strong> 10:54 AM</div>
+        <div><strong>End Time:</strong> 8:54 PM</div>
       </div>
     </div>
   </div>
@@ -198,7 +195,7 @@
           <th>Amount</th>
         </tr>
         <tr>
-          <td>Base Fare</td>
+          <td>Package (includes 80 km)</td>
           <td>₹7500</td>
           <td>Fixed</td>
           <td>₹7500</td>
@@ -264,8 +261,7 @@
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
-
-      alert("✅ Invoice image downloaded. Now share it manually via WhatsApp or any app.");
+      alert("✅ Invoice image downloaded. You can now share it via WhatsApp.");
     });
   }
 </script>
