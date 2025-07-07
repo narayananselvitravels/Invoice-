@@ -2,60 +2,35 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Narayanan Selvi Travels - Invoice</title>
+  <title>Taxi Invoice - NST</title>
   <style>
-    @page {
-      size: A4;
-      margin: 20mm;
-    }
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #fff;
-      padding: 0;
-      margin: 0 auto;
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      padding: 20px;
       max-width: 800px;
-      color: #111;
+      margin: auto;
+      border: 1px solid #ccc;
+      border-radius: 10px;
     }
     .header {
       background-color: #4b2aad;
       color: white;
       padding: 20px;
       text-align: center;
-      border-radius: 0 0 5px 5px;
-    }
-    .header h1 {
       font-size: 28px;
-      margin: 0;
-    }
-    .header h2 {
-      margin-top: 5px;
-      font-size: 20px;
-      font-weight: 500;
-    }
-    .header p {
-      margin: 5px 0 0;
-      font-style: italic;
-      font-size: 14px;
+      font-weight: bold;
+      border-radius: 8px 8px 0 0;
     }
     .section {
-      padding: 20px;
-    }
-    .grid {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      margin-bottom: 10px;
-    }
-    .grid div {
-      width: 48%;
+      margin: 20px 0;
     }
     .section h3 {
       background-color: #4b2aad;
       color: white;
       padding: 10px;
-      font-size: 18px;
       margin: 0;
-      border-radius: 5px 5px 0 0;
+      font-size: 18px;
     }
     .content {
       border: 1px solid #4b2aad;
@@ -63,10 +38,18 @@
       padding: 15px;
       background: white;
     }
+    .grid {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .grid div {
+      width: 48%;
+    }
     .table {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 15px;
+      margin-top: 10px;
     }
     .table th, .table td {
       border: 1px solid #4b2aad;
@@ -81,11 +64,9 @@
       text-align: right;
       font-size: 18px;
       margin-top: 10px;
-      font-weight: bold;
     }
     .notes {
       margin-top: 20px;
-      font-size: 15px;
     }
     .signature {
       display: flex;
@@ -94,7 +75,7 @@
     }
     .buttons {
       text-align: center;
-      margin: 30px 0;
+      margin-top: 30px;
     }
     .buttons button {
       background-color: #4b2aad;
@@ -106,83 +87,73 @@
       cursor: pointer;
       border-radius: 6px;
     }
-    .footer-note {
-      margin-top: 40px;
-      text-align: center;
-      font-size: 16px;
-      font-weight: 500;
-      color: #333;
-    }
-    .footer-note span {
-      color: #4b2aad;
-      font-weight: bold;
+    .buttons button:hover {
+      background-color: #3b2390;
     }
   </style>
 </head>
 <body>
 
-  <div class="header">
-    <h1>🚖 Narayanan Selvi Travels</h1>
-    <h2>🧾 INVOICE</h2>
-    <p>Premium Taxi Service | Comfort • Safety • Punctuality</p>
-  </div>
+  <div class="header">Taxi Invoice</div>
 
   <div class="section">
     <div class="grid">
-      <div><strong>👤 Customer Name:</strong> Narayanan</div>
-      <div style="text-align:right;"><strong>📅 Date:</strong> 08-07-2025</div>
+      <div><p><strong>Hi Narayanan</strong></p></div>
+      <div style="text-align: right;">
+        <p>Thanks for riding with us</p>
+      </div>
     </div>
     <div class="grid">
-      <div><strong>🆔 Invoice No:</strong> #NST001</div>
-      <div style="text-align:right;"><strong>☎️ Contact:</strong> 9800009899</div>
+      <div><p><strong>Invoice Date:</strong> 08-07-2025</p></div>
+      <div><p><strong>Invoice No:</strong> #NST001</p></div>
     </div>
   </div>
 
   <div class="section">
-    <h3>🚗 Trip Details</h3>
+    <h3>Trip Details</h3>
     <div class="content">
       <div class="grid">
-        <div><p><strong>📍 From:</strong> Radison Blu</p></div>
-        <div><p><strong>📍 To:</strong> Mahaballipuram</p></div>
+        <div>
+          <p><strong>Ride From:</strong> Radison Blu</p>
+          <p><strong>Date:</strong> 08-07-2025</p>
+          <p><strong>Time:</strong> 10:54 AM</p>
+        </div>
+        <div>
+          <p><strong>Ride To:</strong> Mahaballipuram</p>
+          <p><strong>Date:</strong> 08-07-2025</p>
+          <p><strong>Time:</strong> 8:54 PM</p>
+        </div>
       </div>
       <div class="grid">
-        <div><p><strong>⏰ Start:</strong> 10:54 AM</p></div>
-        <div><p><strong>⏰ End:</strong> 8:54 PM</p></div>
+        <div><p><strong>Billed By:</strong> Sivakumar</p></div>
+        <div><p><strong>Taxi Operator:</strong> NarayanSelvi Travels</p></div>
       </div>
       <div class="grid">
-        <div><p><strong>🕒 Duration:</strong> 10 hrs</p></div>
-        <div><p><strong>⏳ Extra Hours:</strong> 2</p></div>
+        <div><p><strong>Mobile No:</strong> 9800009899</p></div>
+        <div><p><strong>Vehicle No:</strong> PY05N0505</p></div>
+        <div><p><strong>Vehicle Model:</strong> Innova Crysta</p></div>
       </div>
-      <div class="grid">
-        <div><p><strong>🚘 Vehicle:</strong> Innova Crysta</p></div>
-        <div><p><strong>🔢 Vehicle No:</strong> PY05N0505</p></div>
-      </div>
-      <div class="grid">
-        <div><p><strong>👨‍✈️ Driver:</strong> Sivakumar</p></div>
-        <div><p><strong>📱 Driver Contact:</strong> 98988988888</p></div>
-      </div>
-      <div><p><strong>📏 Total KM:</strong> 237 km | <strong>Extra KM:</strong> 157 km</p></div>
     </div>
   </div>
 
   <div class="section">
-    <h3>💰 Billing Summary</h3>
+    <h3>Billing Details</h3>
     <div class="content">
       <table class="table">
         <tr>
           <th>Description</th>
           <th>Rate</th>
-          <th>Qty</th>
+          <th>Unit</th>
           <th>Amount</th>
         </tr>
         <tr>
-          <td>Package Fare</td>
+          <td>Base Fare</td>
           <td>₹7500</td>
           <td>Fixed</td>
           <td>₹7500</td>
         </tr>
         <tr>
-          <td>Extra Hours</td>
+          <td>Extra Hrs</td>
           <td>₹1000/hr</td>
           <td>2 hrs</td>
           <td>₹2000</td>
@@ -195,29 +166,29 @@
         </tr>
         <tr>
           <td>Toll Charges</td>
-          <td>-</td>
-          <td>-</td>
+          <td>—</td>
+          <td>—</td>
           <td>₹100</td>
         </tr>
         <tr>
           <td>Parking Charges</td>
-          <td>-</td>
-          <td>-</td>
+          <td>—</td>
+          <td>—</td>
           <td>₹100</td>
         </tr>
       </table>
-      <div class="total">Total Fare Payable: ₹12,840</div>
+      <div class="total"><strong>Total Fare Payable: ₹12,840</strong></div>
     </div>
   </div>
 
   <div class="section notes">
-    <p><strong>📝 Note:</strong> Reference - Seethapathy</p>
     <p><strong>Amount in words:</strong> Rupees Twelve Thousand Eight Hundred Forty Only</p>
+    <p><strong>Note:</strong> Reference: Seethapathy</p>
   </div>
 
   <div class="signature">
-    <div>_________________________<br>Customer Signature</div>
-    <div>_________________________<br>Seal & Signature</div>
+    <div><p>_________________________<br>Customer Signature</p></div>
+    <div><p>_________________________<br>Seal & Signature</p></div>
   </div>
 
   <div class="buttons">
@@ -225,50 +196,46 @@
     <button onclick="shareWhatsApp()">📤 Share via WhatsApp</button>
   </div>
 
-  <div class="footer-note">
-    🥳 <span>Happy Ride!</span> Thanks for riding with us — <span>Narayanan Selvi Travels</span> 🚖
-  </div>
-
   <script>
     function shareWhatsApp() {
-      const msg = `📋 *TRIP SUMMARY*
+      const message = `📋 *TRIP SUMMARY*
 *TRIP ID:* #NST001
 *DATE:* 08-07-2025
 
 👤 *CUSTOMER INFO*
-• Name: Narayanan
-• Number: 9800009899
+*• Name:* Narayanan
+*• Number:* 9800009899
 
 👨‍✈️ *DRIVER INFO*
-• Name: Sivakumar
-• Number: 98988988888
+*• Name:* Sivakumar
+*• Number:* 98988988888
 
 🚘 *VEHICLE INFO*
-• Model: Innova Crysta
-• Vehicle No: PY05N0505
+*• Model:* Innova Crysta
+*• Vehicle No:* PY05N0505
 
 🕒 *TIME & DISTANCE*
-• Start Time: 10:54 AM
-• End Time: 8:54 PM
-• Duration: 10 hrs
-• Extra Hrs: 2
-• Total KM: 237 km
-• Extra KM: 157 km
+*• Start Time:* 10:54 AM
+*• End Time:* 8:54 PM
+*• Duration:* 10 hrs
+*• Extra Hrs:* 2
+*• Total KM:* 237 km
+*• Extra KM:* 157 km
 
 💰 *BILLING*
-• Package: ₹7500
-• Extra Hrs: ₹2000
-• Extra KM: ₹3140
-• Toll: ₹100
-• Parking: ₹100
-• Total: ₹12840
+*• Package:* ₹7500
+*• Extra Hrs:* ₹2000
+*• Extra KM:* ₹3140
+*• Toll:* ₹100
+*• Parking:* ₹100
+*• Total:* ₹12840
 
 📝 *Note:* Reference: Seethapathy
-Radison Blu to Mahaballipuram
+Radison Blu to Mahaballipuram`;
 
-🥳 Thank you for riding with *Narayanan Selvi Travels*! 🚖`;
-      const encoded = encodeURIComponent(msg);
-      window.open(`https://wa.me/?text=${encoded}`, '_blank');
+      const encodedMessage = encodeURIComponent(message);
+      const whatsappURL = `https://wa.me/?text=${encodedMessage}`;
+      window.open(whatsappURL, "_blank");
     }
   </script>
 
