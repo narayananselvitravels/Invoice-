@@ -135,7 +135,7 @@
     <p>Premium Taxi Invoice</p>
   </div>
   <div class="invoice-meta">
-    <div><strong>Invoice No:</strong> #NST001</div>
+    <div><strong>Invoice No:</strong> <span id="tripId">#NST001</span></div>
     <div><strong>Date:</strong> 08-07-2025</div>
   </div>
   <div class="section">
@@ -250,28 +250,12 @@
   <button onclick="shareImage()">📸 Share Invoice as Image</button>
 </div>
 <script>
-  function shareImage() {
-    const invoice = document.getElementById('invoice');
-    html2canvas(invoice).then(canvas => {
-      const imgData = canvas.toDataURL("image/png");
-      const link = document.createElement("a");
-      link.href = imgData;
-      link.download = "NST_Invoice.png";
-      link.click();
-    });
-  }
-  function downloadPDF() {
-    const invoice = document.getElementById('invoice');
-    html2canvas(invoice).then(canvas => {
-      const imgData = canvas.toDataURL('image/png');
-      const { jsPDF } = window.jspdf;
-      const pdf = new jsPDF('p', 'mm', 'a4');
-      const width = 210;
-      const height = (canvas.height * width) / canvas.width;
-      pdf.addImage(imgData, 'PNG', 0, 0, width, height);
-      pdf.save('NST_Invoice.pdf');
-    });
-  }
-</script>
+  function getTripId() {
+    const tripIdText = document.getElementById("tripId")?.innerText || "NST_Invoice";
+    return tripIdText.replace(/[^a-zA-Z0-9]/g, "_");
+  }function shareImage() { const invoice = document.getElementById('invoice'); const fileName = getTripId() + ".png"; html2canvas(invoice).then(canvas => { const imgData = canvas.toDataURL("image/png"); const link = document.createElement("a"); link.href = imgData; link.download = fileName; link.click(); }); }
+
+function downloadPDF() { const invoice = document.getElementById('invoice'); const fileName = getTripId() + ".pdf"; html2canvas(invoice).then(canvas => { const imgData = canvas.toDataURL('image/png'); const { jsPDF } = window.jspdf; const pdf = new jsPDF('p', 'mm', 'a4'); const width = 210; const height = (canvas.height * width) / canvas.width; pdf.addImage(imgData, 'PNG', 0, 0, width, height); pdf.save(fileName); }); } </script>
+
 </body>
 </html>
