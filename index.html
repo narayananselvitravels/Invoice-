@@ -1,8 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Taxi Invoice - NST</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NST Taxi Invoice</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
   <style>
@@ -10,119 +10,100 @@
       size: A4;
       margin: 20mm;
     }
-    html, body {
+    body {
       margin: 0;
       padding: 0;
       font-family: 'Poppins', sans-serif;
-      background: #f5f5f5;
-      font-size: 16px;
+      background: #f8f8ff;
     }
     .invoice {
       background: white;
-      width: 210mm;
-      min-height: 297mm;
-      margin: auto;
-      padding: 20mm;
-      box-sizing: border-box;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 30px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
     }
     .header {
-      background-color: #4b2aad;
-      color: white;
-      padding: 20px;
       text-align: center;
-      font-size: 34px;
-      font-weight: 700;
-      border-radius: 10px;
-      margin-bottom: 20px;
+      padding-bottom: 20px;
     }
-    .top-section {
+    .header h1 {
+      margin: 0;
+      font-size: 32px;
+      color: #4b2aad;
+    }
+    .invoice-meta {
       display: flex;
       justify-content: space-between;
-      margin-bottom: 10px;
-    }
-    .top-section .left {
-      font-weight: 600;
-    }
-    .top-section .right {
-      text-align: right;
-      width: 50%;
-    }
-    .section {
+      font-size: 16px;
       margin-bottom: 20px;
     }
-    .section h3 {
-      background-color: #4b2aad;
+    .section {
+      margin-bottom: 25px;
+    }
+    .section h2 {
+      font-size: 18px;
+      background: #4b2aad;
       color: white;
       padding: 10px;
       margin: 0;
-      font-size: 18px;
-      border-top-left-radius: 6px;
-      border-top-right-radius: 6px;
+      border-radius: 4px 4px 0 0;
     }
-    .content {
+    .section .content {
       border: 1px solid #4b2aad;
       padding: 15px;
-      background: white;
-      border-bottom-left-radius: 6px;
-      border-bottom-right-radius: 6px;
-      font-size: 16px;
+      border-radius: 0 0 4px 4px;
+      font-size: 15px;
     }
-    .row {
+    .two-column {
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
     }
-    .row .col {
+    .two-column .col {
       width: 48%;
-    }
-    .field {
       margin-bottom: 15px;
     }
-    .field label {
+    .label {
       font-weight: 600;
-      display: block;
+      margin-bottom: 4px;
     }
-    .table {
+    table {
       width: 100%;
       border-collapse: collapse;
       margin-top: 10px;
-      font-size: 16px;
+      font-size: 15px;
     }
-    .table th, .table td {
+    table th, table td {
       border: 1px solid #4b2aad;
       padding: 10px;
-      text-align: left;
     }
-    .table th {
-      background-color: #4b2aad;
+    table th {
+      background: #4b2aad;
       color: white;
     }
     .total {
       text-align: right;
-      font-size: 18px;
+      font-size: 17px;
+      font-weight: bold;
       margin-top: 10px;
-      font-weight: 600;
     }
-    .signature {
+    .notes, .signatures {
+      margin-top: 20px;
+      font-size: 15px;
+    }
+    .signatures {
       display: flex;
       justify-content: space-between;
       margin-top: 40px;
-      font-size: 15px;
     }
-    .notes {
-      margin-top: 20px;
-      font-size: 16px;
-    }
-    .bottom-message {
+    .footer {
       text-align: center;
-      font-size: 17px;
-      margin-top: 50px;
-      font-weight: bold;
-      color: #333;
+      margin-top: 40px;
+      font-size: 16px;
+      font-weight: 600;
     }
-    .bottom-message span {
-      font-size: 19px;
+    .footer span {
       color: #4b2aad;
     }
     .buttons {
@@ -130,111 +111,86 @@
       margin: 30px 0;
     }
     .buttons button {
-      background-color: #4b2aad;
+      background: #4b2aad;
       color: white;
-      padding: 12px 24px;
-      margin: 10px;
       border: none;
-      font-size: 16px;
+      padding: 10px 20px;
+      margin: 5px;
+      font-size: 15px;
       cursor: pointer;
-      border-radius: 6px;
-      font-weight: 600;
+      border-radius: 5px;
     }
     .buttons button:hover {
-      background-color: #3b2390;
+      background: #3b2390;
     }
   </style>
 </head>
 <body>
-
 <div id="invoice" class="invoice">
-
-  <div class="header">Taxi Invoice</div>
-
-  <div class="top-section">
-    <div class="left">Hi Narayanan</div>
-    <div class="right"><strong>Invoice No:</strong> #NST001</div>
+  <div class="header">
+    <h1>NST Travels</h1>
+    <p>Premium Taxi Invoice</p>
   </div>
-  <div class="top-section">
-    <div class="left"><strong>Invoice Date:</strong> 08-07-2025</div>
-  </div>
-
-  <div class="section">
-    <h3>Trip Details</h3>
-    <div class="content">
-      <div class="row">
-        <div class="col">
-          <div class="field">
-            <label>Customer Name</label>
-            Narayanan
-          </div>
-          <div class="field">
-            <label>Customer Mobile</label>
-            9800009899
-          </div>
-          <div class="field">
-            <label>Owner Name</label>
-            N. Sivakumar
-          </div>
-          <div class="field">
-            <label>Owner Mobile</label>
-            98988988888
-          </div>
-        </div>
-        <div class="col">
-          <div class="field">
-            <label>Driver Name</label>
-            Sivakumar
-          </div>
-          <div class="field">
-            <label>Driver Mobile</label>
-            98988988888
-          </div>
-          <div class="field">
-            <label>Vehicle Model</label>
-            Innova Crysta
-          </div>
-          <div class="field">
-            <label>Vehicle No</label>
-            PY05N0505
-          </div>
-        </div>
+  <div class="invoice-meta">
+    <div><strong>Invoice No:</strong> #NST001</div>
+    <div><strong>Date:</strong> 08-07-2025</div>
+  </div>  <div class="section">
+    <h2>Passenger & Driver Details</h2>
+    <div class="content two-column">
+      <div class="col">
+        <div class="label">Customer Name</div>
+        Narayanan
+        <div class="label">Customer Mobile</div>
+        9800009899
+        <div class="label">Owner Name</div>
+        N. Sivakumar
+        <div class="label">Owner Mobile</div>
+        98988988888
       </div>
-      <div class="row">
-        <div class="col">
-          <div class="field">
-            <label>Ride From</label>
-            Radison Blu
-          </div>
-          <div class="field">
-            <label>Start Time</label>
-            10:54 AM
-          </div>
-        </div>
-        <div class="col">
-          <div class="field">
-            <label>Ride To</label>
-            Mahaballipuram
-          </div>
-          <div class="field">
-            <label>End Time</label>
-            8:54 PM
-          </div>
-        </div>
+      <div class="col">
+        <div class="label">Driver Name</div>
+        Sivakumar
+        <div class="label">Driver Mobile</div>
+        98988988888
+        <div class="label">Vehicle Model</div>
+        Innova Crysta
+        <div class="label">Vehicle Number</div>
+        PY05N0505
       </div>
     </div>
-  </div>
-
-  <div class="section">
-    <h3>Billing Details</h3>
+  </div>  <div class="section">
+    <h2>Trip Info</h2>
+    <div class="content two-column">
+      <div class="col">
+        <div class="label">Pickup Location</div>
+        Radison Blu
+        <div class="label">Start Time</div>
+        10:54 AM
+        <div class="label">Trip Date</div>
+        08-07-2025
+      </div>
+      <div class="col">
+        <div class="label">Drop Location</div>
+        Mahaballipuram
+        <div class="label">End Time</div>
+        8:54 PM
+        <div class="label">Trip Duration</div>
+        10 hrs (2 extra)
+      </div>
+    </div>
+  </div>  <div class="section">
+    <h2>Billing Summary</h2>
     <div class="content">
-      <table class="table">
+      <table>
+        <thead>
         <tr>
           <th>Description</th>
           <th>Rate</th>
-          <th>Unit</th>
+          <th>Units</th>
           <th>Amount</th>
         </tr>
+        </thead>
+        <tbody>
         <tr>
           <td>Package (includes 80 km)</td>
           <td>₹7500</td>
@@ -242,7 +198,7 @@
           <td>₹7500</td>
         </tr>
         <tr>
-          <td>Extra Hrs</td>
+          <td>Extra Hours</td>
           <td>₹1000/hr</td>
           <td>2 hrs</td>
           <td>₹2000</td>
@@ -265,33 +221,23 @@
           <td>—</td>
           <td>₹100</td>
         </tr>
+        </tbody>
       </table>
-      <div class="total"><strong>Total Fare Payable: ₹12,840</strong></div>
+      <div class="total">Total Fare: ₹12,840</div>
     </div>
+  </div>  <div class="notes">
+    <p><strong>In Words:</strong> Rupees Twelve Thousand Eight Hundred Forty Only</p>
+    <p><strong>Reference:</strong> Seethapathy</p>
+  </div>  <div class="signatures">
+    <div>_____________________<br>Customer Signature</div>
+    <div>_____________________<br>Authorized Signature</div>
+  </div>  <div class="footer">
+    😊 <span>Happy Ride!</span> Thanks for choosing <strong>NST Travels 🚖</strong>
   </div>
-
-  <div class="section notes">
-    <p><strong>Amount in words:</strong> Rupees Twelve Thousand Eight Hundred Forty Only</p>
-    <p><strong>Note:</strong> Reference: Seethapathy</p>
-  </div>
-
-  <div class="signature">
-    <div>_________________________<br>Customer Signature</div>
-    <div>_________________________<br>Seal & Signature</div>
-  </div>
-
-  <div class="bottom-message">
-    <p>😊 <span>Happy Ride!</span> Thanks for choosing <strong>NST 🚖</strong></p>
-  </div>
-
-</div>
-
-<div class="buttons">
-  <button onclick="window.print()">🖨️ Print or Save as PDF</button>
-  <button onclick="shareImage()">📤 Share Full Invoice Image via WhatsApp</button>
-</div>
-
-<script>
+</div><div class="buttons">
+  <button onclick="window.print()">🖨️ Print or Save PDF</button>
+  <button onclick="shareImage()">📤 Download Invoice Image</button>
+</div><script>
   function shareImage() {
     const invoice = document.getElementById('invoice');
     html2canvas(invoice).then(canvas => {
@@ -299,13 +245,8 @@
       const link = document.createElement("a");
       link.href = imgData;
       link.download = "NST_Invoice.png";
-      document.body.appendChild(link);
       link.click();
-      document.body.removeChild(link);
-      alert("✅ Invoice image downloaded. You can now share it via WhatsApp.");
     });
   }
-</script>
-
-</body>
+</script></body>
 </html>
