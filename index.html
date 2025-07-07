@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Taxi Invoice - NST</title>
+  <title>NST Invoice</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -16,11 +16,19 @@
     .header {
       background-color: #4b2aad;
       color: white;
-      padding: 20px;
+      padding: 25px 20px 10px;
       text-align: center;
-      font-size: 28px;
+      font-size: 24px;
       font-weight: bold;
       border-radius: 8px 8px 0 0;
+      line-height: 1.5;
+    }
+    .tagline {
+      color: #fff;
+      font-size: 14px;
+      font-weight: normal;
+      margin-top: 5px;
+      letter-spacing: 1px;
     }
     .section {
       margin: 20px 0;
@@ -90,11 +98,24 @@
     .buttons button:hover {
       background-color: #3b2390;
     }
+    .thankyou {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #4b2aad;
+      line-height: 1.6;
+    }
   </style>
 </head>
 <body>
 
-  <div class="header">Taxi Invoice</div>
+  <div class="header">
+    🚖 NST <br>
+    Narayanan Selvi Travels <br>
+    <span style="font-size: 20px;">INVOICE</span>
+    <div class="tagline">Luxury on Wheels • Comfort & Trust in Every Trip</div>
+  </div>
 
   <div class="section">
     <div class="grid">
@@ -196,6 +217,11 @@
     <button onclick="shareWhatsApp()">📤 Share via WhatsApp</button>
   </div>
 
+  <div class="thankyou">
+    🚖 Thank you for choosing <strong>NST – Narayanan Selvi Travels</strong><br>
+    😊 Wishing you a happy and safe ride! 💜
+  </div>
+
   <script>
     function shareWhatsApp() {
       const message = `📋 *TRIP SUMMARY*
@@ -231,7 +257,10 @@
 *• Total:* ₹12840
 
 📝 *Note:* Reference: Seethapathy
-Radison Blu to Mahaballipuram`;
+Radison Blu to Mahaballipuram
+
+🚖 *Thank you for choosing NST – Narayanan Selvi Travels*
+😊 Wishing you a happy and safe ride! 💜`;
 
       const encodedMessage = encodeURIComponent(message);
       const whatsappURL = `https://wa.me/?text=${encodedMessage}`;
@@ -240,4 +269,4 @@ Radison Blu to Mahaballipuram`;
   </script>
 
 </body>
-    </html>
+</html>
