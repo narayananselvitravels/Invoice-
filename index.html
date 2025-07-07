@@ -9,77 +9,78 @@
   <style>
     @page {
       size: A4;
-      margin: 20mm;
+      margin: 15mm;
     }
     body {
       margin: 0;
       padding: 0;
       font-family: 'Poppins', sans-serif;
       background: #f8f8ff;
+      font-size: 13.5px;
     }
     .invoice {
       background: white;
       width: 210mm;
       min-height: 297mm;
-      margin: 20px auto;
-      padding: 30px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      margin: 10px auto;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
       box-sizing: border-box;
     }
     .header {
       text-align: center;
-      padding-bottom: 20px;
+      padding-bottom: 10px;
     }
     .header h1 {
       margin: 0;
-      font-size: 32px;
+      font-size: 26px;
       color: #4b2aad;
     }
     .invoice-meta {
       display: flex;
       justify-content: space-between;
-      font-size: 16px;
-      margin-bottom: 20px;
+      font-size: 13.5px;
+      margin-bottom: 15px;
     }
     .section {
-      margin-bottom: 25px;
+      margin-bottom: 15px;
+      page-break-inside: avoid;
     }
     .section h2 {
-      font-size: 18px;
+      font-size: 15px;
       background: #4b2aad;
       color: white;
-      padding: 10px;
+      padding: 6px 10px;
       margin: 0;
       border-radius: 4px 4px 0 0;
     }
     .section .content {
       border: 1px solid #4b2aad;
-      padding: 15px;
+      padding: 10px;
       border-radius: 0 0 4px 4px;
-      font-size: 15px;
     }
     .two-column {
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
+      gap: 10px;
     }
     .two-column .col {
-      width: 48%;
-      margin-bottom: 15px;
+      flex: 1 1 45%;
     }
     .label {
       font-weight: 600;
-      margin-bottom: 4px;
+      margin-bottom: 2px;
     }
     table {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 10px;
-      font-size: 15px;
+      margin-top: 8px;
+      font-size: 13px;
     }
     table th, table td {
       border: 1px solid #4b2aad;
-      padding: 10px;
+      padding: 6px;
     }
     table th {
       background: #4b2aad;
@@ -87,23 +88,22 @@
     }
     .total {
       text-align: right;
-      font-size: 17px;
+      font-size: 15px;
       font-weight: bold;
-      margin-top: 10px;
+      margin-top: 8px;
     }
     .notes, .signatures {
-      margin-top: 20px;
-      font-size: 15px;
+      margin-top: 15px;
     }
     .signatures {
       display: flex;
       justify-content: space-between;
-      margin-top: 40px;
+      margin-top: 30px;
     }
     .footer {
       text-align: center;
-      margin-top: 40px;
-      font-size: 16px;
+      margin-top: 25px;
+      font-size: 14px;
       font-weight: 600;
     }
     .footer span {
@@ -111,17 +111,17 @@
     }
     .buttons {
       text-align: center;
-      margin: 30px 0;
+      margin: 25px 0;
     }
     .buttons button {
       background: #4b2aad;
       color: white;
       border: none;
-      padding: 10px 20px;
+      padding: 8px 16px;
       margin: 5px;
-      font-size: 15px;
+      font-size: 14px;
       cursor: pointer;
-      border-radius: 5px;
+      border-radius: 4px;
     }
     .buttons button:hover {
       background: #3b2390;
@@ -259,7 +259,19 @@
       link.download = "NST_Invoice.png";
       link.click();
     });
-  }function downloadPDF() { const invoice = document.getElementById('invoice'); html2canvas(invoice).then(canvas => { const imgData = canvas.toDataURL('image/png'); const { jsPDF } = window.jspdf; const pdf = new jsPDF('p', 'mm', 'a4'); const width = 210; const height = (canvas.height * width) / canvas.width; pdf.addImage(imgData, 'PNG', 0, 0, width, height); pdf.save('NST_Invoice.pdf'); }); } </script>
-
+  }
+  function downloadPDF() {
+    const invoice = document.getElementById('invoice');
+    html2canvas(invoice).then(canvas => {
+      const imgData = canvas.toDataURL('image/png');
+      const { jsPDF } = window.jspdf;
+      const pdf = new jsPDF('p', 'mm', 'a4');
+      const width = 210;
+      const height = (canvas.height * width) / canvas.width;
+      pdf.addImage(imgData, 'PNG', 0, 0, width, height);
+      pdf.save('NST_Invoice.pdf');
+    });
+  }
+</script>
 </body>
 </html>
